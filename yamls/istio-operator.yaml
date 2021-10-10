@@ -5,9 +5,9 @@ metadata:
     name: istio-setup
     namespace: istio-system
 spec:
-  profile: default
+  profile: demo # default
   hub: gcr.io/istio-release
-  tag: 1.9.2
+  tag: 1.11.3
   components:
     ingressGateways:
     - name: istio-ingressgateway
