@@ -41,10 +41,15 @@ terraform apply --var-file=terraform.tfvars
 ```
 This will inititate EKS cluster creation. kube config is also set up so that the communication to apiserver is established.
 
+![eks-cluster](https://github.com/alentmathew/democluster/blob/main/images/ekscluster.PNG)
+
+
+
 See the status of nodes
 ```
 kubectl get nodes
 ```
+
 ### Deployment of WordPress application:
 
 Mysql password saved as secret
@@ -104,6 +109,7 @@ Check the status of service:
 ```
 kubectl get service
 ```
+![pods](https://github.com/alentmathew/democluster/blob/main/images/podnoddeploy.PNG)
 
 
 ## Istio mesh configuration
@@ -178,6 +184,14 @@ Get LoadBalancer hostname to access WordPress application
 ```
 kubectl get svc istio-ingressgateway -n istio-system
 ```
+
+![istiolb](https://github.com/alentmathew/democluster/blob/main/images/istiolb.PNG)
+
+
+Now the WordPress application is exposed through the Istio Mesh
+
+![wordpress](https://github.com/alentmathew/democluster/blob/main/images/wp.PNG)
+
 
 ## Deletion:
 
