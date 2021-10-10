@@ -1,10 +1,11 @@
 apiVersion: networking.istio.io/v1alpha3
 kind: Gateway
 metadata:
-  name: istio-ingressgateway
+  name: wp-gateway
 spec:
   selector:
-    app: wordpress
+    istio: ingressgateway 
+    # app: wordpress
   servers:
   - port:
       number: 80
@@ -24,8 +25,10 @@ spec:
   hosts:
   - "*"
   gateways:
-  - istio-ingressgateway
+  - wp-gateway
   http:
   - route:
     - destination:
         host: wordpress
+        port:
+          number: 80
