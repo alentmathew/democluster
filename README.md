@@ -11,6 +11,8 @@ Deploy a Wordpress Application and Expose the application through Istio
 Created IAM role to access AWS resources from EC2 instance through  Terraform.
 Created an EC2 instance and assigned IAM role to provision AWS resources.
 
+VPC for the cluster was manually created with two public subnets so that the cluster will be accessible in public. 
+
 client tools: Terraform v1.0.8, kubectl v1.22.0
 
 #### Detailed steps:
@@ -41,7 +43,6 @@ terraform apply --var-file=terraform.tfvars
 ```
 This will inititate EKS cluster creation and its related dependency resources. kube config is also downloaded to EC2 instance so that the communication to cluster apiserver is established.
 
-Note: VPC for the cluster was manually created with two public subnets so that the cluster will be accessible in public. 
 
 ![eks-cluster](https://github.com/alentmathew/democluster/blob/main/images/ekscluster.PNG)
 
