@@ -39,7 +39,9 @@ Terraform apply to execute the changes
 ```
 terraform apply --var-file=terraform.tfvars
 ```
-This will inititate EKS cluster creation. kube config is also set up so that the communication to apiserver is established.
+This will inititate EKS cluster creation and its related dependency resources. kube config is also downloaded to EC2 instance so that the communication to cluster apiserver is established.
+
+Note: VPC for the cluster was manually created with two public subnets so that the cluster will be accessible in public. 
 
 ![eks-cluster](https://github.com/alentmathew/democluster/blob/main/images/ekscluster.PNG)
 
